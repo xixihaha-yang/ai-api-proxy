@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI API Proxy - Fast & Reliable AI API Access</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #fff; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero */
+        .hero { padding: 100px 0 80px; text-align: center; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
+        .hero h1 { font-size: 3em; font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2em; color: #aaa; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+        .badge { background: rgba(102,126,234,0.15); border: 1px solid rgba(102,126,234,0.3); padding: 6px 16px; border-radius: 20px; font-size: 0.9em; color: #667eea; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: transform 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); }
+
+        /* Features */
+        .features { padding: 80px 0; background: #111; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .feature-card { background: #1a1a1a; border: 1px solid #222; border-radius: 12px; padding: 32px 24px; transition: border-color 0.3s; }
+        .feature-card:hover { border-color: #667eea; }
+        .feature-icon { font-size: 2em; margin-bottom: 16px; }
+        .feature-card h3 { margin-bottom: 8px; font-size: 1.1em; }
+        .feature-card p { color: #888; font-size: 0.95em; line-height: 1.5; }
+
+        /* Pricing */
+        .pricing { padding: 80px 0; background: #0a0a0a; }
+        .section-title { text-align: center; font-size: 2em; font-weight: 800; margin-bottom: 8px; }
+        .section-subtitle { text-align: center; color: #888; margin-bottom: 48px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .price-card { background: #111; border: 1px solid #222; border-radius: 12px; padding: 32px 24px; text-align: center; position: relative; transition: border-color 0.3s; }
+        .price-card:hover { border-color: #667eea; }
+        .price-card.popular { border-color: #667eea; }
+        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #667eea; color: #fff; padding: 4px 16px; border-radius: 12px; font-size: 0.8em; font-weight: 700; }
+        .price-card h3 { font-size: 1.1em; margin-bottom: 8px; }
+        .price-amount { font-size: 2.2em; font-weight: 800; margin-bottom: 4px; }
+        .price-amount span { font-size: 0.4em; color: #888; font-weight: 400; }
+        .price-tokens { color: #888; font-size: 0.9em; margin-bottom: 20px; }
+        .price-features { list-style: none; margin-bottom: 24px; text-align: left; }
+        .price-features li { padding: 6px 0; color: #aaa; font-size: 0.9em; }
+        .price-features li::before { content: "✓ "; color: #4ade80; font-weight: bold; }
+
+        /* How it works */
+        .how-it-works { padding: 80px 0; background: #111; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+        .step { text-align: center; padding: 24px; }
+        .step-num { width: 48px; height: 48px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 800; font-size: 1.2em; }
+        .step h3 { margin-bottom: 8px; }
+        .step p { color: #888; font-size: 0.95em; }
+
+        /* API Info */
+        .api-info { padding: 80px 0; background: #0a0a0a; }
+        .code-block { background: #111; border: 1px solid #222; border-radius: 12px; padding: 24px; overflow-x: auto; }
+        .code-block pre { color: #4ade80; font-family: 'Courier New', monospace; font-size: 0.9em; line-height: 1.6; }
+
+        /* CTA */
+        .cta-section { padding: 80px 0; background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%); text-align: center; }
+        .cta-section h2 { font-size: 2em; margin-bottom: 16px; }
+        .cta-section p { color: #888; margin-bottom: 32px; }
+
+        /* Footer */
+        footer { padding: 40px 0; background: #111; text-align: center; color: #666; font-size: 0.9em; }
+        footer a { color: #667eea; text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2em; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>AI API Proxy</h1>
+        <p>Fast, reliable, and affordable access to top AI models. OpenAI-compatible API endpoint. Pay with USDT.</p>
+        <div class="hero-badges">
+            <span class="badge">⚡ DeepSeek / GPT-4o</span>
+            <span class="badge">🔒 99.9% Uptime</span>
+            <span class="badge">💸 Pay with USDT</span>
+            <span class="badge">🚀 OpenAI SDK Compatible</span>
+        </div>
+        <a href="#pricing" class="cta-btn">View Pricing</a>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Ultra Low Latency</h3>
+                <p>Servers in Singapore. Average response time &lt; 800ms for chat completions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔌</div>
+                <h3>Drop-in Replacement</h3>
+                <p>100% OpenAI API compatible. Just change the base URL, no code changes needed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Best Prices</h3>
+                <p>Up to 90% cheaper than official API. DeepSeek chat for $0.14/1M tokens.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Privacy First</h3>
+                <p>No logging of your requests. Your data stays private and secure.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title">Simple Pricing</h2>
+        <p class="section-subtitle">Pay with USDT (TRC20). No hidden fees.</p>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price-amount">$5 <span>USDT</span></div>
+                <div class="price-tokens">1M tokens</div>
+                <ul class="price-features">
+                    <li>DeepSeek Chat</li>
+                    <li>GPT-4o Mini</li>
+                    <li>Email Support</li>
+                </ul>
+            </div>
+            <div class="price-card popular">
+                <div class="popular-tag">MOST POPULAR</div>
+                <h3>Basic</h3>
+                <div class="price-amount">$20 <span>USDT</span></div>
+                <div class="price-tokens">5M tokens</div>
+                <ul class="price-features">
+                    <li>All Models</li>
+                    <li>Priority Support</li>
+                    <li>99.9% Uptime SLA</li>
+                </ul>
+            </div>
+            <div class="price-card">
+                <h3>Pro</h3>
+                <div class="price-amount">$50 <span>USDT</span></div>
+                <div class="price-tokens">15M tokens</div>
+                <ul class="price-features">
+                    <li>All Models</li>
+                    <li>24/7 Support</li>
+                    <li>Custom Rate Limits</li>
+                </ul>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <div class="price-amount">$100 <span>USDT</span></div>
+                <div class="price-tokens">40M tokens</div>
+                <ul class="price-features">
+                    <li>Dedicated Endpoint</li>
+                    <li>SLA Guarantee</li>
+                    <li>Custom Models</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started in under 5 minutes.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Choose Plan</h3>
+                <p>Pick a pricing plan that fits your needs and budget.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Pay with USDT</h3>
+                <p>Send USDT (TRC20) to our wallet address. Confirmation in ~1 minute.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Get API Key</h3>
+                <p>Receive your API key within 5 minutes after payment confirmation.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h3>Start Building</h3>
+                <p>Use our OpenAI-compatible endpoint. No code changes needed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- API Endpoint Info -->
+<section class="api-info">
+    <div class="container">
+        <h2 class="section-title">API Endpoint</h2>
+        <p class="section-subtitle">Drop-in replacement for OpenAI API. Just change the base URL.</p>
+        <div class="code-block">
+<pre>import openai
+
+client = openai.OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="http://45.77.246.243:3000/v1"
+)
+
+response = client.chat.completions.create(
+    model="deepseek-chat",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+print(response.choices[0].message.content)</pre>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to get started?</h2>
+        <p>Contact us via email to place your order.</p>
+        <a href="mailto:514414907@qq.com" class="cta-btn">Contact via Email</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>Payment: USDT (TRC20) | Server Location: Singapore</p>
+        <p style="margin-top: 8px;">Contact: <a href="mailto:514414907@qq.com">514414907@qq.com</a></p>
+        <p style="margin-top: 16px;">&copy; 2026 AI API Proxy. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
